@@ -1,0 +1,38 @@
+.alarm-card{
+    max-width: 440px;
+    width: 100%;
+    padding: 30px;
+    background: #243356;
+    color: white;
+    border-radius: 16px;
+    margin: 24px auto;
+}
+
+h1{
+    color: #ffcd0a;
+    font-size: 36px;
+    text-align: center;
+    font-weight: 500;
+}
+
+h2{
+    font-size: 48px;
+    text-align: center;
+    font-weight: 500;
+    color: #00d9FE;
+    margin: 30px auto;
+}
+
+button{
+    color: #243356;
+    background: #ffcd0a;
+    font-size: 20px;
+    padding: 14px;
+    border-color: yellow;
+    margin-top: 12px;
+}
+
+img{
+    margin: 20px auto;
+    display: block;
+}
