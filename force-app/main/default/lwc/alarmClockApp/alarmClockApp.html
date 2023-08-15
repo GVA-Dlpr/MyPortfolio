@@ -1,20 +1,43 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
 <template>
     <div class="alarm-card">
         <h1>Alaram Clock</h1>
-        <img src={clockImage} alt="Clock Image" height="200px" width="200px">
+        <img src={clockImage} alt="Clock Image" height="200px" width="200px" class={shakeImage}>
         <h2>{currentTime}</h2>
         <div class="slds-grid slds-gutters">
             <div class="slds-col">
-                <span>Hours</span>
+                <c-clock-dropdown label="Hour(s)" options={hours} unique-id="select-hours"
+                    onoptionhandler={optionhandler}></c-clock-dropdown>
             </div>
             <div class="slds-col">
-                <span>Minutes</span>
+                <c-clock-dropdown label="Minute(s)" options={minutes} unique-id="select-minutes"
+                    onoptionhandler={optionhandler}></c-clock-dropdown>
             </div>
             <div class="slds-col">
-                <span>AM/PM</span>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label custom-label" for="select-ampm">AM/PM</label>
+                    <div class="slds-form-element__control">
+                        <div class="slds-select_container">
+                            <select class="slds-select" id="select-ampm" onchange={ampmchange}>
+                                <option name="" value="">Select…</option>
+                                <option name='am' value="AM">AM</option>
+                                <option name="pm" value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-            <button class="slds-button slds-button_neutral slds-button_stretch">Set Alarm</button>
+        </div>
+        <template if:false={isAlarmSet}>
+            <button class="slds-button slds-button_neutral slds-button_stretch" disabled={isFieldNotSelected}
+                onclick={setAlarmHandler}>Set Alarm</button>
+        </template>
+        <template if:true={isAlarmSet}>
+            <button class="slds-button slds-button_neutral slds-button_stretch" onclick={clearAlarmHandler} value="">Clear
+                Alarm</button>
+        </template>
     </div>
 
 </template>
